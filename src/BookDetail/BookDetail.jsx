@@ -1,5 +1,6 @@
 import React from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { NavLink, useLoaderData, useParams } from 'react-router-dom';
+import { addToStoredReadList, addToStoredWishList } from '../Utils/Utilities';
 
 const BookDetail = () => {
     const { bookId } = useParams()
@@ -12,6 +13,15 @@ const BookDetail = () => {
     const { image, yearOfPublishing, publisher, author, review, totalPages, rating, bookName, category, tags } = book;
 
 
+    const handleMarkAsRead = (id) => {
+
+
+        addToStoredReadList(id)
+    }
+
+    const handleWishList = (id) => {
+        addToStoredWishList(id)
+    }
 
 
     return (
@@ -54,8 +64,8 @@ const BookDetail = () => {
 
                     {/* Buttons */}
                     <div className="pt-4">
-                        <button className="btn btn-primary mr-3">Mark As Read</button>
-                        <button className="btn btn-outline">Wish List</button>
+                        <NavLink onClick={() => handleMarkAsRead(bookId)} className="btn btn-primary mr-3">Mark As Read</NavLink>
+                        <NavLink onClick={() => handleWishList(bookId)} className="btn btn-outline">Wish List</NavLink>
                     </div>
                 </div>
             </div>
