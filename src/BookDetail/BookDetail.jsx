@@ -26,7 +26,9 @@ const BookDetail = () => {
 
     return (
         <div className="max-w-6xl mx-auto p-6 bg-white shadow-lg rounded-lg">
-            <h2 className="text-2xl font-semibold mb-6">Book Detail: {bookId}</h2>
+            <h2 className="text-2xl font-semibold mb-6">Book Detail: 
+                {bookId}
+            </h2>
 
             <div className="flex flex-col lg:flex-row gap-8">
                 {/* Book Image */}
